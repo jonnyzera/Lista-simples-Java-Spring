@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <style>
+        body { font-family: Arial; margin: 30px; }
+        .tarefa { margin-bottom: 10px; }
+        .remover { color: red; text-decoration: none; margin-left: 10px; }
+    </style>
+</head>
+<body>
+<h1>Lista de Tarefas ✅</h1>
+
+<form action="/adicionar" method="post">
+    <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> -->
+    <input type="text" name="nome" placeholder="Nova tarefa" required>
+    <button type="submit">Adicionar</button>
+</form>
+
+<hr>
+
+<div th:if="${tarefas.size() == 0}">
+    <p>Nenhuma tarefa cadastrada.</p>
+</div>
+
+<ul>
+    <li th:each="tarefa, iterStat : ${tarefas}" class="tarefa">
+        <span th:text="${tarefa.nome}"></span>
+        <a th:href="@{'/remover/' + ${iterStat.index}}" class="remover">Remover</a>
+    </li>
+</ul>
+
+</body>
+</html>

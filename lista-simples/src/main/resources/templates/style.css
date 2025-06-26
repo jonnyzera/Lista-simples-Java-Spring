@@ -1,0 +1,19 @@
+body{
+    font-family: Arial;
+    margin: 30px;
+}
+
+.tarefa{
+    margin-bottom: 10px;
+}
+
+li{
+     list-style: none;
+     ;
+}
+
+.remover{
+    color: red;
+    text-decoration: none;
+    margin-left: 10px;
+}
